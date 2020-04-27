@@ -1,0 +1,15 @@
+server:
+  port: 8077
+
+travel-share:
+  storage:
+    local:
+      storagePath: storage
+      address: http://127.0.0.1:8077/storage/fetch/
+
+spring:
+  datasource:
+    url: jdbc:mysql://db.bymarx.cn:3306/travel_share?useSSL=false
+    username: root
+    password: Db+Bymarxor123;
+    driver-class-name: com.mysql.cj.jdbc.Driver

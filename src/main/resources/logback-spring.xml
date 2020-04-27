@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false">
+
+    <property name="outPattern" value="[%-5p]  %d{yyyy-MM-dd HH:mm:ss.SSS} [%t] [%C] - %m%n"/>
+    <!-- 文件历史数 -->
+    <property name="maxHistory" value="7"/>
+
+    <springProfile name="dev">
+        <property name="logLevel" value="debug"/>
+    </springProfile>
+    <springProfile name="test">
+        <property name="logLevel" value="debug"/>
+    </springProfile>
+    <springProfile name="prod">
+        <property name="logLevel" value="info"/>
+    </springProfile>
+
+    <!-- logback -->
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>${outPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="FILE" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/cockpit-gw.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/cockpit-gw.log.%d{yyyy-MM-dd}
+            </fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${outPattern}</pattern>
+        </encoder>
+    </appender>
+
+    <appender name="ERROR" class="ch.qos.logback.core.rolling.RollingFileAppender">
+        <file>/cockpit-gw_error.log</file>
+        <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
+            <fileNamePattern>/cockpit-gw_error.log.%d{yyyy-MM-dd}
+            </fileNamePattern>
+            <maxHistory>${maxHistory}</maxHistory>
+        </rollingPolicy>
+        <encoder>
+            <pattern>${outPattern}</pattern>
+        </encoder>
+        <filter class="ch.qos.logback.classic.filter.LevelFilter">
+            <level>ERROR</level>
+            <onMatch>ACCEPT</onMatch>
+            <onMismatch>DENY</onMismatch>
+        </filter>
+    </appender>
+
+    <!--logger -->
+    <logger name="com.alibaba.dubbo" level="error" additivity="false">
+        <springProfile name="dev">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <appender-ref ref="ERROR"/>
+    </logger>
+    <logger name="org.springframework" level="error" additivity="false">
+        <springProfile name="dev">
+            <appender-ref ref="CONSOLE"/>
+        </springProfile>
+        <appender-ref ref="ERROR"/>
+    </logger>
+
+    <springProfile name="dev">
+        <root level="debug">
+            <appender-ref ref="CONSOLE"/>
+        </root>
+    </springProfile>
+    <springProfile name="test">
+        <root level="debug">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR"/>
+        </root>
+    </springProfile>
+    <springProfile name="prod">
+        <root level="info">
+            <appender-ref ref="FILE"/>
+            <appender-ref ref="ERROR"/>
+        </root>
+    </springProfile>
+</configuration>
