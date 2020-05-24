@@ -1,0 +1,79 @@
+body {
+
+    font-size: 12px;
+    margin: 0 auto;
+}
+
+a:link, a:visited, a:active {
+    color: #3B5888;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #3B5888;
+    text-decoration: underline;
+}
+
+/*��ɫ��12px ����*/
+.font1 {
+    color: #808080;
+    font-weight: bold;
+    line-height: 20px;
+}
+
+.font2 {
+    font-weight: bold;
+}
+
+.font3 {
+    /*18px ����ϸ��*/
+
+    font-size: 20px;
+    font-weight: bold;
+    font-family: "������κ";
+
+
+}
+
+/*ǳ��,12px;*/
+.font4 {
+    font-size: 12px;
+    color: #808080;
+    line-height: 12px;
+}
+
+.font6 {
+    color: #808080;
+}
+
+.font7 {
+    font-size: 18px;
+    font-family: ΢���ź�;
+    font-weight: bold;
+}
+
+.font8 {
+    font-size: 18px;
+    font-family: ΢���ź�;
+    font-weight: bold;
+    color: #3B5888;
+}
+
+/*�Ӵ�,��ɫ*/
+.font9 {
+    font-weight: bold;
+}
+
+.divSch {
+    background-color: white;
+    border-style: solid;
+    position: absolute;
+    top: 430;
+    left: 400;
+    border-color: #D8DFEA;
+    border-width: 12px;
+    font-size: 12px;
+
+
+}
+
