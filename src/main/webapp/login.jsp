@@ -46,7 +46,7 @@
     }
 
     function _register() {
-        location.href = "/trip/user/register.jsp";
+        location.href = "/trip/user/register";
     }
 
 </script>

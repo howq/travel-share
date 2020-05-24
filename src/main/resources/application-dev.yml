@@ -5,7 +5,7 @@ travel-share:
   storage:
     local:
       storagePath: storage
-      address: http://127.0.0.1:8077/storage/fetch/
+      address: http://127.0.0.1:8080/storage/fetch/
 
 spring:
   datasource:
