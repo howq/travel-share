@@ -29,7 +29,7 @@ public class LoginController {
      * ============================== * jsp页面的jspx forward跳转 * ==========================================
      */
 
-    @RequestMapping(value = "/trip/user/login.jspx")
+    @RequestMapping(value = "/trip/user/login")
     public ModelAndView _toLoginPage() {
         return new ModelAndView("forward:/login.jsp");
     }

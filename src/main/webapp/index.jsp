@@ -2,7 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" import="personal.zhou.travelshare.util.SysConst" %>
 <%
-    UserVo vo = (UserVo) session.getAttribute(SysConst.CurrentUser);
+    personal.zhou.travelshare.domain.vo.UserVo vo = (personal.zhou.travelshare.domain.vo.UserVo) session.getAttribute(personal.zhou.travelshare.util.SysConst.CurrentUser);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -20,7 +20,7 @@
         <tr>
             <td width="80" height="32"><img
                     src="<%=request.getContextPath()%>/resource/img/index/index_01.jpg">&nbsp;<a
-                    href="/trip/user/index.jspx">主页</a>
+                    href="/trip/user/index">主页</a>
             </td>
             <td width="80"><img
                     src="<%=request.getContextPath()%>/resource/img/index/index_02.jpg">&nbsp;<a>通知</a>
@@ -32,7 +32,7 @@
                     src="<%=request.getContextPath()%>/resource/img/index/index_04.jpg">&nbsp;<a>发现</a>
             </td>
             <td width="370"><a
-                    href="/trip/user/homepage.jspx?id=<%=vo.getId()%>"><img
+                    href="/trip/user/homepage?id=<%=vo.getId()%>"><img
                     src="/trip/imgFileView.do?fileName=<%=vo.getPhotoUrl()%>"
                     width="35" height="35"/> <span><%=vo.getUserAccount()%></span>
             </a>
@@ -78,7 +78,7 @@
 <div class="blog" id="blog_detail" style="display:none;">
     <div class="blog_head">
         <div class="blog_headimg">
-            <a href="/trip/user/homepage.jspx?id='+this.userid+'"
+            <a href="/trip/user/homepage?id='+this.userid+'"
                name="head_img_a"><img
                     src="/trip/imgFileView.do?fileName='+this.photoUrl+'" width="51"
                     height="51" name="headimg"/>
@@ -277,7 +277,7 @@
     }
 
     function editInfo() {
-        location.href = "/trip/user/editInfo.jspx";
+        location.href = "/trip/user/editInfo";
     }
 
     function issue() {
@@ -298,7 +298,7 @@
         param = param + '&photo=' + photoUrl;
         param = param.substring(1);
         $.getJSON('/trip/user/addBlog.do', param, function (json) {
-            location.href = '/trip/user/index.jspx';
+            location.href = '/trip/user/index';
         });
 
     }
@@ -347,28 +347,16 @@
 
     }
 
-    function searchCount() {
+    function searchCount(){
 
-        $.getJSON("/trip/user/personalCount.do", "", function (json) {
+        $.getJSON("/trip/user/personalCount.do","",function(json){
 
             var blogCount = json.object.blogCount;
             var followerCount = json.object.followerCount;
             var fansCount = json.object.fansCount;
-            $(".user_table").append('<tr>
-                < td > < a
-            href = "homepage.jspx?id=<%=vo.getId()%>" > '+blogCount+' < /a></
-            td >
-            < td > < a
-            href = "/trip/user/follower.jspx?id=<%=vo.getId()%>" > '+followerCount+' < /a></
-            td >
-            < td > < a
-            href = "/trip/user/fans.jspx?id=
-            <%=vo.getId()%>
-            ">'
+            $(".user_table").append('<tr><td><a href="homepage?id=<%=vo.getId()%>">'+blogCount+'</a></td><td><a href="/trip/user/follower?id=<%=vo.getId()%>">'+followerCount+'</a></td><td><a href="/trip/user/fans?id=<%=vo.getId()%>">'
             + fansCount
-            + '</a></td></tr>'
-        )
-            ;
+            + '</a></td></tr>');
 
         });
     }
@@ -475,7 +463,7 @@
                 "/trip/imgFileView.do?fileName=" + this.photoUrl);
             $(".commentAllDetail", curr).attr("blogid", this.id);
             $("a[name='head_img_a']", curr).attr("href",
-                "/trip/user/homepage.jspx?id=" + this.userid);
+                "/trip/user/homepage?id=" + this.userid);
 
             //$("div[name='blog_photo']",curr).html('');
             if (this.photo != null && this.photo != '') {

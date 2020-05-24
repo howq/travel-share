@@ -2,7 +2,7 @@
          pageEncoding="utf-8"
          import="personal.zhou.travelshare.domain.vo.UserVo  ,personal.zhou.travelshare.util.SysConst" %>
 <%
-    UserVo vo = (UserVo) session.getAttribute(SysConst.CurrentUser);
+    personal.zhou.travelshare.domain.vo.UserVo vo = (personal.zhou.travelshare.domain.vo.UserVo) session.getAttribute(personal.zhou.travelshare.util.SysConst.CurrentUser);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -163,7 +163,7 @@
                                 "src",
                                 "/trip/imgFileView.do?fileName="
                                 + photoUrl);
-                        //location.href="/trip/user/index.jspx";
+                        //location.href="/trip/user/index";
 
                     });
                 } else {
@@ -187,7 +187,7 @@
 
             if (json.success) {
                 alert("个人资料更新成功");
-                window.location.href = '/trip/user/index.jspx';
+                window.location.href = '/trip/user/index';
             } else {
                 alert("个人资料更新失败");
             }

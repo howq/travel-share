@@ -104,26 +104,26 @@ public class UserController {
      * jspx页面
      */
     @MethodResourceDesc(name = "修改个人信息页面")
-    @RequestMapping(value = "/trip/user/editInfo.jspx")
+    @RequestMapping(value = "/trip/user/editInfo")
     public ModelAndView _toEditInfo() {
         return new ModelAndView("forward:/editInfo.jsp");
     }
 
     @MethodResourceDesc(name = "主页")
-    @RequestMapping(value = "/trip/user/index.jspx")
+    @RequestMapping(value = "/trip/user/index")
     public ModelAndView _toIndex() {
         return new ModelAndView("forward:/index.jsp");
     }
 
 
     @MethodResourceDesc(name = "注册页面")
-    @RequestMapping(value = "/trip/user/register.jspx")
+    @RequestMapping(value = "/trip/user/register")
     public ModelAndView _toregister() {
         return new ModelAndView("forward:/register.jsp");
     }
 
     @MethodResourceDesc(name = "我关注的页面")
-    @RequestMapping(value = "/trip/user/follower.jspx")
+    @RequestMapping(value = "/trip/user/follower")
     public ModelAndView _tofollower(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", request.getParameter("id"));
@@ -132,7 +132,7 @@ public class UserController {
     }
 
     @MethodResourceDesc(name = "我的粉丝页面")
-    @RequestMapping(value = "/trip/user/fans.jspx")
+    @RequestMapping(value = "/trip/user/fans")
     public ModelAndView _tofans(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", request.getParameter("id"));

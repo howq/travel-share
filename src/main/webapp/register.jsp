@@ -164,7 +164,7 @@
         param = param.substring(1);
         $.getJSON("/trip/user/register.do", param, function (json) {
             if (json.success) {
-                location.href = "/trip/user/login.jspx";
+                location.href = "/trip/user/login";
             } else {
                 alert(json.message);
             }

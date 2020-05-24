@@ -1,3 +1,6 @@
 spring:
   profiles:
     active: dev
+  thymeleaf:
+    cache: false
+    enabled: false

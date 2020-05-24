@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
          pageEncoding="utf-8" %>
 <%@page import="personal.zhou.travelshare.domain.vo.UserVo ,personal.zhou.travelshare.util.SysConst" %>
-<% UserVo vo = (UserVo) session.getAttribute(SysConst.CurrentUser);%>
+<% personal.zhou.travelshare.domain.vo.UserVo vo = (personal.zhou.travelshare.domain.vo.UserVo) session.getAttribute(personal.zhou.travelshare.util.SysConst.CurrentUser);%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +43,7 @@
     <div class="main_right">
         <div class="user_all" style="display:none" id="user_all">
             <div class="user_top">
-                <a href="/trip/user/homepage.jspx?id=14" name="homepage">
+                <a href="/trip/user/homepage?id=14" name="homepage">
                     <img src="/trip/imgFileView.do?fileName=/head\2015\04\25\05acabf7-fd82-404a-99cf-2b7f2d3c51bc.jpg"
                          name="head_img">
                 </a>
@@ -126,7 +126,7 @@
             $.each(list, function () {
                 var curr = $("#user_all").clone();
                 curr.show();
-                $("a[name='homepage']", curr).attr("href", "/trip/user/homepage.jspx?id=" + this.id);
+                $("a[name='homepage']", curr).attr("href", "/trip/user/homepage?id=" + this.id);
                 $("img[name='head_img']", curr).attr("src", "/trip/imgFileView.do?fileName=" + this.photoUrl);
                 $("td[name='name']", curr).html(this.userAccount);
                 $("td[name='sex']", curr).html(this.sex);

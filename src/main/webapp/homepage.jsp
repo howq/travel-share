@@ -2,7 +2,7 @@
          pageEncoding="utf-8" %>
 <%@page import="personal.zhou.travelshare.domain.vo.UserVo ,personal.zhou.travelshare.util.SysConst" %>
 <%
-    UserVo vo = (UserVo) session.getAttribute(SysConst.CurrentUser);
+    personal.zhou.travelshare.domain.vo.UserVo vo = (personal.zhou.travelshare.domain.vo.UserVo) session.getAttribute(personal.zhou.travelshare.util.SysConst.CurrentUser);
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -64,7 +64,7 @@
         <div class="blog" id="blog_detail" style="display:none;">
             <div class="blog_head">
                 <div class="blog_headimg">
-                    <a href="/trip/user/homepage.jspx?id='+this.userid+'"
+                    <a href="/trip/user/homepage?id='+this.userid+'"
                        name="head_img_a"><img
                             src="/trip/imgFileView.do?fileName='+this.photoUrl+'" width="51"
                             height="51" name="headimg"/>
@@ -151,12 +151,12 @@
 <td>'
                                 + blogCount
                                 + '</td>\
-			<td><a href="/trip/user/homepage/follower.jspx?id='
+			<td><a href="/trip/user/homepage/follower?id='
                                 + id
                                 + '">'
                                 + followerCount
                                 + '</a></td>\
-			<td><a href="/trip/user/homepage/fans.jspx?id='
+			<td><a href="/trip/user/homepage/fans?id='
                                 + id + '">'
                                 + fansCount
                                 + '</a></td></tr>');
@@ -216,7 +216,7 @@
                 "/trip/imgFileView.do?fileName=" + this.photoUrl);
             $(".commentAllDetail", curr).attr("blogid", this.id);
             $("a[name='head_img_a']", curr).attr("href",
-                "/trip/user/homepage.jspx?id=" + this.userid);
+                "/trip/user/homepage?id=" + this.userid);
 
             //$("div[name='blog_photo']",curr).html('');
             if (this.photo != null && this.photo != '') {

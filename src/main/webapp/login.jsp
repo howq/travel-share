@@ -36,10 +36,10 @@
         param = 'userAccount=' + $("#userAccount").val() + '&password=' + $("#password").val();
         $.getJSON("/trip/user/login.do", param, function (json) {
             if (json.success) {
-                location.href = "/trip/user/index.jspx";
+                location.href = "/trip/user/index";
             } else {
                 alert("用户账号或密码错误,请重新输入");
-                location.href = "/trip/user/login.jspx";
+                location.href = "/trip/user/login";
             }
 
         });

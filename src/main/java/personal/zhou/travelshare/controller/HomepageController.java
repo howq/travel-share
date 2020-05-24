@@ -40,7 +40,7 @@ public class HomepageController {
      * jspx跳转
      **/
     @MethodResourceDesc(name = "个人主页")
-    @RequestMapping(value = "/trip/user/homepage.jspx")
+    @RequestMapping(value = "/trip/user/homepage")
     public ModelAndView _tohomepage(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", request.getParameter("id"));
@@ -48,7 +48,7 @@ public class HomepageController {
     }
 
     @MethodResourceDesc(name = "我关注的人")
-    @RequestMapping(value = "/trip/user/homepage/follower.jspx")
+    @RequestMapping(value = "/trip/user/homepage/follower")
     public ModelAndView _tofollowPage(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", request.getParameter("id"));
@@ -56,7 +56,7 @@ public class HomepageController {
     }
 
     @MethodResourceDesc(name = "我的粉丝")
-    @RequestMapping(value = "/trip/user/homepage/fans.jspx")
+    @RequestMapping(value = "/trip/user/homepage/fans")
     public ModelAndView _tofansPage(HttpServletRequest request) {
         Map<String, String> map = new HashMap<String, String>();
         map.put("id", request.getParameter("id"));
