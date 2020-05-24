@@ -86,8 +86,8 @@ public class FileController {
         try {
             while (iter.hasNext()) {
                 String param = (String) iter.next();
-                CommonsMultipartFile file = (CommonsMultipartFile) multipartRequest.getFile(param);
-                in = file.getFileItem().getInputStream();
+                MultipartFile file = multipartRequest.getFile(param);
+                in = file.getInputStream();
                 String oriFileName = file.getOriginalFilename();
                 result = fileService.uploadFile(oriFileName, in, file.getSize(), "/blog");
                 in.close();
