@@ -200,7 +200,7 @@
     var page = 1;
     var photoUrl = '';
     $(document).ready(function () {
-        $("#img_upload").click(ajaxUploadInit("/trip/uploadBlogPhoto.do", "img_upload", "msg"));
+        $("#img_upload").click(ajaxUploadInit("/trip/upload_head.do", "img_upload", "msg"));
         $.getJSON('/trip/listAllProvice.do', function (json) {
 
             initSelect($("#province"), json.object);
@@ -297,7 +297,7 @@
         }
         param = param + '&photo=' + photoUrl;
         param = param.substring(1);
-        $.getJSON('/trip/user/addBlog.do', param, function (json) {
+        $.post('/trip/user/addBlog.do', param, function (json) {
             location.href = '/trip/user/index';
         });
 

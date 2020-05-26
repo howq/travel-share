@@ -27,6 +27,8 @@ public class BlogServiceImpl extends BaseService implements BlogService {
         UserVo userVo = (UserVo) session.getAttribute(SysConst.CurrentUser);
         vo.setUserid(userVo.getId());
         vo.setCreatetime(new Date());
+        vo.setPhotoUrl(userVo.getPhotoUrl());
+        vo.setUserAccount(userVo.getUserAccount());
         blogMapper.insert(vo);
         return getResult(ResultCode.SUCCESS, "", "博文发布成功");
     }
@@ -64,6 +66,9 @@ public class BlogServiceImpl extends BaseService implements BlogService {
         session = req.getSession();
         UserVo uservo = (UserVo) session.getAttribute(SysConst.CurrentUser);
         vo.setUserId(uservo.getId());
+        vo.setState(0);
+        vo.setPhotoUrl(uservo.getPhotoUrl());
+        vo.setUserAccount(uservo.getUserAccount());
         vo.setCreateTime(new Date().toLocaleString());
         int i = blogMapper.insertComment(vo);
 

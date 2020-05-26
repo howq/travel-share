@@ -3,6 +3,7 @@ package personal.zhou.travelshare.controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import personal.zhou.travelshare.domain.vo.*;
 import personal.zhou.travelshare.service.inter.BlogService;
@@ -18,7 +19,7 @@ public class BlogController {
     private BlogService blogService;
 
     @MethodResourceDesc(name = "发布博客")
-    @RequestMapping(value = "/addBlog.do")
+    @RequestMapping(value = "/addBlog.do",method = RequestMethod.POST)
     @ResponseBody
     public Result insert(BlogVo vo, HttpServletRequest request) {
         return blogService.insert(vo, request);
