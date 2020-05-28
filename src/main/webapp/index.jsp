@@ -238,7 +238,7 @@
                             $("span[name='ser_name']", curr).html(this.userAccount);
                             $("img[name='ser_head_img']", curr).attr("src", "/trip/imgFileView.do?fileName=" + this.photoUrl);
                             $("span[name='fans']", curr).html("粉丝：" + this.fansCount);
-                            if (this.friendship != '0') {
+                            if (this.friendship !== '0' && null != this.friendship) {
                                 $("input[name='ser_action']", curr).val("已关注");
                             } else {
                                 $("input[name='ser_action']", curr).val("+关注");
