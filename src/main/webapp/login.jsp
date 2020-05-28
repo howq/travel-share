@@ -20,15 +20,15 @@
             <td><input type="password" class="input_" placeholder="请输入您的密码" id="password"/></td>
         </tr>
         <tr>
-            <td><input type="button" class="button" value="登录" onclick="_login();">
-                <input type="button" class="button" value="注册" onclick="_register()"></td>
+            <td><input type="button" class="button" value="登录" onclick="login();">
+                <input type="button" class="button" value="注册" onclick="register()"></td>
         </tr>
 
     </table>
     <div></div>
 </div>
 <script type="text/javascript">
-    function _login() {
+    function login() {
         if ($("#userAccount").val() == '' || $("#password").val() == '') {
             alert("请输入用户名和密码");
             return;
@@ -45,7 +45,7 @@
         });
     }
 
-    function _register() {
+    function register() {
         location.href = "/trip/user/register";
     }
 
